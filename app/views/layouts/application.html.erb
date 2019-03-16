@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Say thanks</title>
+    <%= favicon_link_tag('favicon.ico') %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- nav.jsを読み込みたい場合 -->
+    <%= javascript_include_tag "nav" %>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <h1 class="site-title">
+            <% if @current_user %>
+              <%= link_to("Say thanks","/posts/index")%>
+            <% else %>
+              <%= link_to("Say thanks","/")%>
+            <% end %>
+          </h1>
+        </div><!-- .site-title -->
+
+        <div class="header-right">
+          <div id="nav_toggle">
+            <div>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <nav>
+            <ul>
+              <% if @current_user %>
+                <li><%= link_to("投稿一覧","/posts/index")%></li>
+                <li><%= link_to(@current_user.name, "/users/#{@current_user.id}") %></li>
+                <li><%= link_to("ログアウト","/logout",{method: :post})%></li>
+                <li><%= link_to("新規投稿","/posts/new")%></li>
+              <% else %>
+                <li><%= link_to("ログイン","/login")%></li>
+                <li><%= link_to("新規登録","/signup")%></li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <footer class="textcenter">
+      <p>Created by KENZO TANAKA</p>
+      <a href="https://twitter.com/kenzoooooB"><img src="/tw.png"></a>
+    </footer>
+  </body>
+</html>

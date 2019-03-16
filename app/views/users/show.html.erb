@@ -1,0 +1,25 @@
+<div class="prof-wrp">
+	<img src="<%= "/user_images/#{@user.image_name}" %>">
+	<h4 class="sh-name">
+		<% if @current_user.id == @user.id %>
+			<a href="<%= "/users/#{@user.id}/edit" %>"><%= @user.name %> <i class="fas fa-edit"></i></a>
+		<% else %>
+			<%= @user.name %>
+		<% end %>
+	</h4>
+</div>
+<div class="timeline-wrp top-zero">
+	<% @user.posts.each do |post| %>
+	<div class="timeline-item">
+		<div class="timeline-item-img">
+			<img src="<%= "/user_images/#{post.user.image_name}" %>">
+		</div>
+		<div class="timeline-item-content">
+			<div class="us-name">
+				<%= link_to(post.user.name, "/users/#{post.user.id}") %>		
+			</div>
+			<p><%= post.content %></p>
+		</div>
+	</div>
+	<% end %>
+</div>

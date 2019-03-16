@@ -1,0 +1,16 @@
+<div class="form-wrp">
+	<div class="form signup">
+		<%= form_tag("/users/#{@user.id}/update" ,{multipart: true}) do %>
+			<p>ユーザー名</p>
+			<input name="name" value="<%= @user.name %>">
+			<p>メールアドレス</p>
+			<input name="email" value="<%= @user.email %>">
+			<p>プロフィール画像</p>
+			<input type="file" name="image">
+			<p>パスワード</p>
+			<input name="password" type="password" value="<%= @user.password %>">
+			<input type="submit" value="編集">
+		<% end %>
+	</div>
+</div>
+
