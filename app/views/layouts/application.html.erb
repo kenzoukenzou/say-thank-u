@@ -4,7 +4,7 @@
     <title>Say thanks</title>
     <%= favicon_link_tag('favicon.ico') %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <%= javascript_include_tag "jquery-3.3.1.min" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
