@@ -1,24 +1,14 @@
-# README
+##1.アプリケーション概要
+ 「感謝の気持ち」を書き込むSNSというテーマで作成したWebアプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##2.機能一覧
+* ログイン,ログアウト,新規登録機能
+* ユーザー情報編集機能,ユーザー画像アップロード機能
+* 新規投稿機能
+* 投稿編集削除機能
+* バリデーションによる機能使用制限
 
-Things you may want to cover:
+##3.使用技術
+* インフラ：Herokuを使用
+* テンプレートエンジン：ERB
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
