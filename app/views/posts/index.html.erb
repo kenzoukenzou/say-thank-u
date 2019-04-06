@@ -9,9 +9,11 @@
 				<div class="us-name">
 					<%= link_to(post.user.name, "/users/#{post.user.id}") %>
 				</div>
-				<% if @current_user == nil %>
+				<% if @current_user == nil || @current_user.id != post.user.id %>
 					<p><%= post.content %></p>
+
 				<% elsif @current_user.id == post.user.id %>
+					<p><%= post.content %></p>
 					<%= link_to "/posts/#{post.id}/destroy", :method => :post, :class => "post-delete", data: { confirm: '本当に削除して良いですか？' } do %>
 					  削除 <i class="fas fa-trash-alt"></i>
 					<% end %>
