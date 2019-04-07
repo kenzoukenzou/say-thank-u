@@ -4,7 +4,7 @@ describe '投稿機能', type: :system do
 	describe '一覧表示機能' do
 		before do
 			user_a = FactoryBot.create(:user, name: 'test', email: 'test@example.com', password: 'test')
-			FactoryBot.create(:post, content: 'first post', user: user_a)
+			FactoryBot.create(:post, content: 'first post', user_id: user_a.id)
 		end
 
 		context 'ユーザーAがログインしている時' do

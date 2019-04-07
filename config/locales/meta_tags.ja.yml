@@ -1,0 +1,7 @@
+ja:
+  meta_tags:
+    defaults:
+      site: 'Say thanks'
+      description: '感謝を書き込むSNS'
+      keywords: 'thanks'
+      title: 'Say thanks'
