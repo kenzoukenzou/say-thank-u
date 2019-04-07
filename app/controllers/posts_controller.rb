@@ -32,11 +32,13 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
-  def destroy 
+  def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
-    flash[:notice] = "投稿を削除しました！"
-    redirect_to("/posts/index")
+    # flash[:notice] = "投稿を削除しました！"
+    # redirect_to("/posts/index")
+    @msg = "削除完了した"
+    head :no_content
   end
 
   def correct_user
@@ -46,4 +48,5 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
 end

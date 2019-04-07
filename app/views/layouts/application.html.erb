@@ -5,6 +5,7 @@
     <%= favicon_link_tag('favicon.ico') %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <%= javascript_include_tag "jquery-3.3.1.min" %>
+    <%= javascript_include_tag "posts" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -39,10 +40,10 @@
           <nav>
             <ul>
               <% if @current_user %>
+                <li><%= link_to("新規投稿","/posts/new")%></li>
                 <li><%= link_to("投稿一覧","/posts/index")%></li>
                 <li><%= link_to(@current_user.name, "/users/#{@current_user.id}") %></li>
-                <li><%= link_to("ログアウト","/logout",{method: :post})%></li>
-                <li><%= link_to("新規投稿","/posts/new")%></li>
+                <li><%= link_to("ログアウト","/logout",{method: :post})%></li>    
               <% else %>
                 <li><%= link_to("投稿一覧","/posts/index")%></li>
                 <li><%= link_to("ログイン","/login")%></li>
@@ -59,6 +60,8 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+
+    <div id='alert-message'></div>
 
     <%= yield %>
 

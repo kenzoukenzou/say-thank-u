@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, only: [:update]
   before_action :auth_user, {only: [:index, :show]}
   before_action :login_user, {only: [:new, :create, :login_form, :login]}
   before_action :correct_user, {only: [:edit, :update]}
@@ -52,16 +53,18 @@ class UsersController < ApplicationController
 
     @user.save
     flash[:notice] = "ユーザー編集が完了しました！"
-    redirect_to("/users/#{@user.id}")
+    
+    # @user.update(user_params)
+    # redirect_to("/users/#{@user.id}")
   end
 
   def destroy 
     @user = User.find_by(id: params[:id])
     @user.destroy
-
     @posts = Post.find_by(user_id: params[:id])
     @posts.destroy
     flash[:notice] = "ユーザーを削除しました！"
+    @msg = '削除成功'
     redirect_to("/")
   end
 
@@ -98,6 +101,16 @@ class UsersController < ApplicationController
       flash[:notice] = "権限がありません！"
       redirect_to("/posts/index")
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name,:email,:password,:image)
+  end
+
+  def set_user
+    @user = User.find_by(id: params[:id])
   end
 
 end

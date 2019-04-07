@@ -1,6 +1,7 @@
 <!-- timeline -->
 <div class="timeline-wrp">
 	<% @posts.each do |post| %>
+		<div id="alert-message"></div>
 		<div class="timeline-item">
 			<div class="timeline-item-img">
 				<img src="<%= "/user_images/#{post.user.image_name}" %>">
@@ -14,7 +15,7 @@
 
 				<% elsif @current_user.id == post.user.id %>
 					<p><%= post.content %></p>
-					<%= link_to "/posts/#{post.id}/destroy", :method => :post, :class => "post-delete", data: { confirm: '本当に削除して良いですか？' } do %>
+					<%= link_to "/posts/#{post.id}/destroy", :method => :post, :remote => true, :class => "post-delete", data: { confirm: '本当に削除して良いですか？' } do %>
 					  削除 <i class="fas fa-trash-alt"></i>
 					<% end %>
 					<a class="post-edit" href="<%= "/posts/#{post.id}/edit" %>">編集 <i class="fas fa-edit"></i></a>
