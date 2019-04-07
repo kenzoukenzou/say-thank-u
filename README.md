@@ -12,4 +12,4 @@
 # 3.使用技術
 * インフラ：Herokuを使用
 * テンプレートエンジン：ERBを使用
-* Ajax:rails-ujsを使用
+* Ajax：rails-ujsを使用
