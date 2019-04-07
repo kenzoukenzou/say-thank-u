@@ -37,8 +37,7 @@ class PostsController < ApplicationController
     @post.destroy
     # flash[:notice] = "投稿を削除しました！"
     # redirect_to("/posts/index")
-    @msg = "削除完了した"
-    head :no_content
+    # head :no_content
   end
 
   def correct_user

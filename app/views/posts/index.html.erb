@@ -1,7 +1,7 @@
 <!-- timeline -->
+<div id="message"></div>
 <div class="timeline-wrp">
 	<% @posts.each do |post| %>
-		<div id="alert-message"></div>
 		<div class="timeline-item">
 			<div class="timeline-item-img">
 				<img src="<%= "/user_images/#{post.user.image_name}" %>">
