@@ -1,7 +1,6 @@
 # 1.アプリケーション概要
- 「感謝の気持ち」を書き込むSNSというテーマで作成したWebアプリです。
-
- https://say-thank-u.herokuapp.com/login より test/test でログインできます。
+* 「感謝の気持ち」を書き込むSNSというテーマで作成したWebアプリ
+* https://say-thank-u.herokuapp.com/login より test/test でログイン可能です
 
 # 2.機能一覧
 * ログイン,ログアウト,新規登録機能
