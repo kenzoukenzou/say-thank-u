@@ -13,3 +13,4 @@
 * インフラ：Herokuを使用
 * テンプレートエンジン：ERBを使用
 * Ajax：rails-ujsを使用
+* OGP設定：meta-tagsを使用
