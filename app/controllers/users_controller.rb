@@ -19,13 +19,13 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password])
     
-    if params[:image]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}",image.read)
-    else 
-       @user.image_name = "cat.jpg"
-    end
+    # if params[:image]
+    #   @user.image_name = "#{@user.id}.jpg"
+    #   image = params[:image]
+    #   File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    # else 
+    #    @user.image_name = "cat.jpg"
+    # end
 
   	if @user.save
       session[:user_id] = @user.id
@@ -38,7 +38,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
-    head :no_content
   end
 
   def update
