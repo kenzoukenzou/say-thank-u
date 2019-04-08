@@ -64,8 +64,10 @@ class UsersController < ApplicationController
     flash[:notice] = "ユーザーを削除しました！"
 
     if @posts.nil?
+      @user.destroy
       redirect_to("/")
     else
+      @posts.destroy
       @user.destroy
       redirect_to("/")
     end
