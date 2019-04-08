@@ -19,18 +19,19 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password])
     
-    # if params[:image]
-    #   @user.image_name = "#{@user.id}.jpg"
-    #   image = params[:image]
-    #   File.binwrite("public/user_images/#{@user.image_name}",image.read)
-    # else 
-    #    @user.image_name = "cat.jpg"
-    # end
+    if params[:image]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    else 
+       @user.image_name = "cat.jpg"
+    end
 
   	if @user.save
       session[:user_id] = @user.id
   		flash[:notice] = "ユーザー登録が完了しました"
-  		redirect_to('/posts/index')
+  		# redirect_to('/posts/index')
+      redirect_to("/users/#{@user.id}")
   	else
   		render("/users/new")
   	end
@@ -59,12 +60,16 @@ class UsersController < ApplicationController
 
   def destroy 
     @user = User.find_by(id: params[:id])
-    @user.destroy
     @posts = Post.find_by(user_id: params[:id])
-    @posts.destroy
     flash[:notice] = "ユーザーを削除しました！"
-    @msg = '削除成功'
-    redirect_to("/")
+
+    if @posts.nil?
+      redirect_to("/")
+    else
+      @user.destroy
+      redirect_to("/")
+    end
+    
   end
 
 
