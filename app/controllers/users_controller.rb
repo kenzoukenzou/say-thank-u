@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
+    head :no_content
   end
 
   def update

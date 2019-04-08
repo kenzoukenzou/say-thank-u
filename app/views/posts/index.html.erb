@@ -2,7 +2,7 @@
 <div id="message"></div>
 <div class="timeline-wrp">
 	<% @posts.each do |post| %>
-		<div class="timeline-item">
+		<div class="timeline-item" id='<%= post.id %>'>
 			<div class="timeline-item-img">
 				<img src="<%= "/user_images/#{post.user.image_name}" %>">
 			</div>
@@ -18,7 +18,9 @@
 					<%= link_to "/posts/#{post.id}/destroy", :method => :post, :remote => true, :class => "post-delete", data: { confirm: '本当に削除して良いですか？' } do %>
 					  削除 <i class="fas fa-trash-alt"></i>
 					<% end %>
-					<a class="post-edit" href="<%= "/posts/#{post.id}/edit" %>">編集 <i class="fas fa-edit"></i></a>
+					<%= link_to "/posts/#{post.id}/edit", :method => :get, :remote => true, :class => "post-edit" do %>
+					 	編集 <i class="fas fa-edit"></i>
+					<% end %>
 				<% end %> 
 			</div>
 		</div>
