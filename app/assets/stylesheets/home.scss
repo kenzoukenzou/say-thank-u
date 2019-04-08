@@ -288,13 +288,14 @@ footer > p {
 .new-post-window{
   border-radius: 50%;
   text-align: center;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background: #006598;
   position: fixed;
-  bottom: 180px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   z-index: 40;
+  box-shadow: 2px 2px 4px gray;
 }
 
 .fa-feather{
