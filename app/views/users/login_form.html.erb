@@ -7,7 +7,7 @@
         <% end %>
 		
 		<p>テストユーザー：test/test</p>
-		<%= form_with model: @user do |form| %>
+		<%= form_with model: @user, local: true do |form| %>
 		  <%= form.label :email, 'メールアドレス' %>
 		  <%= form.text_field :email %>
 		  <%= form.label :password, 'パスワード' %>

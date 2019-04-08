@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :auth_user, {only: [:index, :show]}
   before_action :login_user, {only: [:new, :create, :login_form, :login]}
   before_action :correct_user, {only: [:edit, :update]}
+  before_action :test_user, {only: [:edit, :destroy]}
 
   def index
   end
@@ -53,9 +54,7 @@ class UsersController < ApplicationController
 
     @user.save
     flash[:notice] = "ユーザー編集が完了しました！"
-    
-    # @user.update(user_params)
-    # redirect_to("/users/#{@user.id}")
+    redirect_to("/users/#{@user.id}")
   end
 
   def destroy 
@@ -111,6 +110,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def test_user
+    if @current_user.name == "test"
+      flash[:notice] = "テストユーザーではこの機能は使用できません"
+      redirect_to("/users/#{@current_user.id}")
+    end
   end
 
 end
