@@ -12,7 +12,6 @@
 				</div>
 				<% if @current_user == nil || @current_user.id != post.user.id %>
 					<p><%= post.content %></p>
-
 				<% elsif @current_user.id == post.user.id %>
 					<p><%= post.content %></p>
 					<%= link_to "/posts/#{post.id}/destroy", :method => :post, :remote => true, :class => "post-delete", data: { confirm: '本当に削除して良いですか？' } do %>
@@ -26,3 +25,28 @@
 		</div>
 	<% end %>
 </div>
+<% if @current_user != nil %>
+	<div class="new-post-window">
+		<i class="fas fa-feather fa-3x" id='openModal'></i>
+	</div>
+
+	<!-- モダールエリア -->
+	<section id="modalArea" class="modalArea">
+	  <div id="modalBg" class="modalBg"></div>
+	  <div class="modalWrapper">
+	    <div class="modalContents">
+			<%= form_tag("/posts/create") do %>
+				<div class="form-wrp form-for-index">
+					<div class="form newpost">
+						<textarea name="content"></textarea>
+						<input type="submit" value="投稿">
+					</div>
+				</div>
+			<% end %>
+	    </div>
+	    <div id="closeModal" class="closeModal">
+	      ×
+	    </div>
+	  </div>
+	</section>
+<% end %>
