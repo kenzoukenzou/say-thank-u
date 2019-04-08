@@ -6,12 +6,12 @@
           </div>
         <% end %>
 		
-		<p>テストユーザー：test/test</p>
+		<p>テストユーザー：test/test (そのままログインを押してください)</p>
 		<%= form_with model: @user, local: true do |form| %>
 		  <%= form.label :email, 'メールアドレス' %>
-		  <%= form.text_field :email %>
+		  <%= form.text_field :email ,:value => "test" %>
 		  <%= form.label :password, 'パスワード' %>
-		  <%= form.password_field :password %>
+		  <%= form.password_field :password,:value => "test" %>
 		  <%= form.submit "ログイン" %>
 		<% end %>
 
