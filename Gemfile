@@ -71,3 +71,4 @@ group :production do
 end
 
 gem 'meta-tags'
+gem 'carrierwave'

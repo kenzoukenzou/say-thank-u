@@ -2,13 +2,13 @@
 	<!-- <img src="<%= "/user_images/#{@user.image_name}" %>"> -->
 	<% if @user.image.attached? %>
 		<%= image_tag @user.image %>
+	<% else %>
+		<img src="/cat.jpg">
 	<% end %>
 	<h4 class="sh-name">
 		<% if @current_user.id == @user.id %>
 			<a href="<%= "/users/#{@user.id}/edit" %>"><%= @user.name %> <i class="fas fa-edit"></i></a>
-			<%= link_to "/users/#{@user.id}/destroy", :method => :user, :class => "user-delete", data: { confirm: '本当に削除して良いですか？' } do %>
-				退会<i class="fas fa-trash-alt"></i>
-			<% end %>
+			<%= link_to "退会する", user_path(@user.id), method: :delete,data: { confirm: '本当に削除して良いですか？' } %>
 		<% else %>
 			<%= @user.name %>
 		<% end %>
@@ -18,7 +18,7 @@
 	<% @user.posts.each do |post| %>
 	<div class="timeline-item">
 		<div class="timeline-item-img">
-			<img src="<%= "/user_images/#{post.user.image_name}" %>">
+			<%= image_tag @user.image %>
 		</div>
 		<div class="timeline-item-content">
 			<div class="us-name">
