@@ -13,6 +13,7 @@
 
 # 3.使用技術
 * インフラ：Herokuを使用
+* 画像アップロード：Active Storageを使用
 * テンプレートエンジン：ERBを使用
 * Ajax：rails-ujsを使用
 * OGP設定：meta-tagsを使用
