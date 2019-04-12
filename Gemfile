@@ -72,3 +72,4 @@ end
 
 gem 'meta-tags'
 gem 'carrierwave'
+gem "aws-sdk-s3", require: false #追記
