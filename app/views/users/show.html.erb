@@ -18,7 +18,11 @@
 	<% @user.posts.each do |post| %>
 	<div class="timeline-item">
 		<div class="timeline-item-img">
-			<%= image_tag @user.image %>
+			<% if @user.image.attached? %>
+				<%= image_tag @user.image %>
+			<% else %>
+				<img src="/cat.jpg">
+			<% end %>
 		</div>
 		<div class="timeline-item-content">
 			<div class="us-name">

@@ -4,8 +4,7 @@ class User < ApplicationRecord
 	validates :email, {presence: true, uniqueness: true}
 	validates :password, {presence: true}
 
-	has_one_attached :image # active_strage
-	# mount_uploader :image_name, ImgUploader
+	has_one_attached :image
 
 	def posts
 		return Post.where(user_id: self.id)

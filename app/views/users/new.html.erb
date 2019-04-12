@@ -7,7 +7,7 @@
           </div>
         <% end %>
         <!-- 画像をattach -->
-		<%= form_with model: @user, url: users_path,local: true do |form| %>
+		<%= form_with model: @user,local: true do |form| %>
 		  <%= form.label :name, 'ユーザー名' %>
 		  <%= form.text_field :name %>
 		  <%= form.label :email, 'メールアドレス' %>

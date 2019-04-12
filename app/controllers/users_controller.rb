@@ -17,19 +17,10 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
     
-    # if params[:image]
-    #   @user.image_name = "#{@user.id}.jpg"
-    #   image = params[:image]
-    #   File.binwrite("public/user_images/#{@user.image_name}",image.read)
-    # else 
-    #    @user.image_name = "cat.jpg"
-    # end
-
   	if @user.save
       session[:user_id] = @user.id
   		flash[:notice] = "ユーザー登録が完了しました"
   		redirect_to('/posts/index')
-      # redirect_to("/users/#{@user.id}")
   	else
   		render("/users/new")
   	end
