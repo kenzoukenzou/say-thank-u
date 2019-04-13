@@ -13,10 +13,11 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-  	@post = Post.new(content:params[:content],user_id: @current_user.id)
+  	@post = Post.new(content: params[:content], user_id: @current_user.id)
   	@post.save
   	redirect_to('/posts/index')
   end
