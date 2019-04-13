@@ -42,8 +42,8 @@ class UsersController < ApplicationController
     #   image = params[:image]
     #   File.binwrite("public/user_images/#{@user.image_name}",image.read)
     # end
-    # @user.image.purge
-    # @user.image.attach(params[:image])
+    @user.image.purge
+    @user.image.attach(params[:image])
 
     @user.update(user_params)
     flash[:notice] = "ユーザー編集が完了しました！"
