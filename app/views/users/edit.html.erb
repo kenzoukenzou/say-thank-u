@@ -1,16 +1,27 @@
 <div class="form-wrp">
 	<div class="form signup">
 		<!-- 画像をattach -->
-		<%= form_with(model: @user, local: true) do |form| %>
-		  <%= form.label :name, 'ユーザー名' %>
-		  <%= form.text_field :name %>
-		  <%= form.label :email, 'メールアドレス' %>
-		  <%= form.text_field :email %>
-		  <%= form.label :image, 'プロフィール画像' %>
-		  <%= form.file_field :image %>
-		  <%= form.label :password, 'パスワード' %>
-		  <%= form.password_field :password %>
-		  <%= form.submit "編集" %>
+		<% if @current_user.email == 'test' %>
+			<%= form_with(model: @user, local: true) do |form| %>
+			  <p>テストユーザーのため、ユーザー名とプロフィール画像の編集のみ可能です。</p>
+			  <%= form.label :name, 'ユーザー名' %>
+			  <%= form.text_field :name %>
+			  <%= form.label :image, 'プロフィール画像' %>
+			  <%= form.file_field :image %>
+			  <%= form.submit "編集" %>
+			<% end %>
+		<% else %>
+			<%= form_with(model: @user, local: true) do |form| %>
+			  <%= form.label :name, 'ユーザー名' %>
+			  <%= form.text_field :name %>
+			  <%= form.label :email, 'メールアドレス' %>
+			  <%= form.text_field :email %>
+			  <%= form.label :image, 'プロフィール画像' %>
+			  <%= form.file_field :image %>
+			  <%= form.label :password, 'パスワード' %>
+			  <%= form.password_field :password %>
+			  <%= form.submit "編集" %>
+			<% end %>
 		<% end %>
 	</div>
 </div>

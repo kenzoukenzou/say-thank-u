@@ -14,7 +14,6 @@ body {
     margin: 0;
     padding: 0;
     background:#fff5e1;
-    color: #000;
     font-size: 1.2rem;
     font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -26,12 +25,11 @@ html{
 body{margin-bottom: 170px;}/*footer最下部表示処理*/
 a{
   text-decoration: none;
-  color: #232b33;
+  color: #006598;
 }
 
 h2{text-align: center;}
 .textcenter{text-align: center;}
-.section{margin-bottom: 50px;}
 
 .flash {
   padding: 10px 0;
@@ -58,17 +56,18 @@ h2{text-align: center;}
 }
 
 .top-zero{ margin-top: 0px!important;}
+.bottom-fix { margin-bottom: 30px!important;}
 
 /* --------------------------------
  * header
  * -------------------------------- */
 header{
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 70px;
-z-index: 4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  z-index: 4;
 }
 
 .site-title{ 
@@ -102,7 +101,7 @@ z-index: 4;
 
 .benefit-item{
   margin: 0 auto;
-  padding: 2em;
+  padding: 10px;
 }
 
 .introduction p{
@@ -202,6 +201,10 @@ footer > p {
   float: right;
 }
 
+.from-login-to-signup{
+  margin-top: 20px;
+}
+
 /* --------------------------------
  * newpost
  * -------------------------------- */
@@ -251,12 +254,10 @@ footer > p {
   text-align: left;
 }
 
-.us-name a{
-  font-weight: bold;
+.timeline-item-content p{
+  width: 65%;
+  font-size: 0.9em;
 }
-
-.sh-name { color: #006598;}
-.sh-name a{ color: #006598;}
 
 .prof-wrp{
   width: 100%;
@@ -269,20 +270,21 @@ footer > p {
   margin: 0 auto;
 }
 
+
 .post-edit{
   position: absolute;
-  top: 70%;
-  left: 60%;
+  top: 20%;
+  left: 80%;
   color : #006598;
-  font-weight: bold;
+  font-size: 0.9em;
 }
 
 .post-delete{
   position: absolute;
-  top: 70%;
+  top: 50%;
   left: 80%;
   color : #006598;
-  font-weight: bold;
+  font-size: 0.9em;
 }
 
 .new-post-window{

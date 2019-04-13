@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :auth_user, {only: [:index, :show]}
   before_action :login_user, {only: [:new, :create, :login_form, :login]}
   before_action :correct_user, {only: [:edit, :update]}
-  before_action :test_user, {only: [:edit, :destroy]}
+  before_action :test_user, only: [:destroy]
 
   def index
   end
