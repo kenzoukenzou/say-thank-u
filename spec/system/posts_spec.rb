@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-describe '投稿機能', type: :system do
-	describe '一覧表示機能' do
-		let(:user_a) {  FactoryBot.create(:user, name: 'ユーザーA', email: 'test@example.com', password: 'test')}
-		let(:user_b) {  FactoryBot.create(:user, name: 'ユーザーB', email: 'testb@example.com', password: 'test')}
-
+describe '投稿管理機能', type: :system do
+	let(:user_a) {  FactoryBot.create(:user, name: 'ユーザーA', email: 'test@example.com', password: 'test')}
+	let(:user_b) {  FactoryBot.create(:user, name: 'ユーザーB', email: 'testb@example.com', password: 'test')}
+	describe '投稿一覧表示機能' do
 		before do
 			FactoryBot.create(:post, content: 'first post', user_id: user_a.id)
 			visit login_path
@@ -28,5 +27,4 @@ describe '投稿機能', type: :system do
 			end
 		end
 	end
-
 end
