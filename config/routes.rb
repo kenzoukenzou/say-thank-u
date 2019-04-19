@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   resources :home
   root 'home#top'
+  devise_for :users, controllers: {
+      omniauth_callbacks: "users/omniauth_callbacks"
+  }
 end

@@ -73,3 +73,8 @@ end
 gem 'meta-tags'
 gem 'carrierwave'
 gem "aws-sdk-s3", require: false #追記
+
+# Google 認証
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
