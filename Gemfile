@@ -78,3 +78,4 @@ gem "aws-sdk-s3", require: false #追記
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
