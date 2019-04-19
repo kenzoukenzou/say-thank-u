@@ -14,7 +14,7 @@
 		  <%= form.password_field :password,:value => "test" %>
 		  <%= form.submit "ログイン" %>
 		<% end %>
-		<a href="/signup" style="font-weight: bold;">新規登録はこちら</a>
-		<%= link_to 'Signin with Google',  user_google_omniauth_authorize_path %>
+		<a href="/signup" style="font-weight: bold;">新規登録はこちら</a><br>
+		<%= link_to 'Googleログイン',  user_google_omniauth_authorize_path %>
 	</div>
 </div>
