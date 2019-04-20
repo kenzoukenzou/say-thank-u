@@ -81,5 +81,7 @@ gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
 
-# facebook認証
+# facebook/twitter認証
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'activerecord-session_store'
