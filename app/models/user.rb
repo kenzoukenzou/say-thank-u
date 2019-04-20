@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :trackable, :omniauthable, omniauth_providers: %i(google)
+  devise :database_authenticatable, :registerable,
+       :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  # ,omniauth_providers: %i(google)
 
 	validates :name, {presence: true}
 	validates :email, {presence: true, uniqueness: true}
@@ -9,15 +11,15 @@ class User < ApplicationRecord
 
 	has_one_attached :image
   
-	devise :trackable, :omniauthable, omniauth_providers: %i(google)
 
 	def posts
 		return Post.where(user_id: self.id)
 	end
 
   protected
-  def self.find_for_google(auth)
-    user = User.find_by(email: auth.info.email)
+  def self.find_for_oauth(auth)
+    # user = User.find_by(email: auth.info.email)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
 
     unless user
       user = User.create(name: auth.info.name,

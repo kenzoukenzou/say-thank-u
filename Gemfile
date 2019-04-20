@@ -79,3 +79,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+
+
+# facebook認証
+gem 'omniauth-facebook'

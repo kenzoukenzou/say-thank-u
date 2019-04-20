@@ -165,6 +165,8 @@ GEM
     omniauth (1.9.0)
       hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
+    omniauth-facebook (5.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.6.1)
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
@@ -300,6 +302,7 @@ DEPENDENCIES
   meta-tags
   mini_magick (~> 4.8)
   omniauth
+  omniauth-facebook
   omniauth-google-oauth2
   pg
   puma (~> 3.11)

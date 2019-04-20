@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+
+require "omniauth-facebook"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -32,11 +34,12 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  config.omniauth :google_oauth2,
-                  ENV['GOOGLE_APP_ID'], # 環境変数に先ほど控えたクライアントIDを入れておく
-                  ENV['GOOGLE_APP_SECRET'], # 環境変数に先ほど控えたシークレットを入れておく
-                  name: :google
-                  # scope: %w(email) 
+  config.omniauth :google_oauth2, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_APP_SECRET'],name: :google
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_APP_SECRET']
+  # config.omniauth( :facebook,
+  #                  ENV['FACEBOOK_APP_ID'],
+  #                  ENV['FACEBOOK_APP_SECRET'],
+  #                  {:scope => 'email'} )
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
