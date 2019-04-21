@@ -21,13 +21,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
       session[:user_id] = @user.id #add
     else
-      if provider == 'twitter'
-        session['devise.#{provider}_data'] = request.env['omniauth.auth'].except("extra")
-        redirect_to new_user_registration_url
-      else
+      # if provider == 'twitter'
+      #   session['devise.#{provider}_data'] = request.env['omniauth.auth'].except("extra")
+      #   redirect_to new_user_registration_url
+      # else
         session['devise.#{provider}_data'] = request.env['omniauth.auth']
         redirect_to new_user_registration_url
-      end
+      # end
     end
   end
 end
