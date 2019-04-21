@@ -84,4 +84,5 @@ gem 'dotenv-rails'
 # facebook/twitter認証
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'activerecord-session_store'
+gem 'redis'
+gem 'redis-rails'
