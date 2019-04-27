@@ -14,7 +14,7 @@
 * インフラ：Herokuを使用
 * 画像アップロード機能：Active Storageを使用
 * 画像保存先：AWS S3を使用
-* テンプレートエンジン：ERBを使用
+* 開発環境：Dockerを使用
 * Ajax：rails-ujsを使用
 * OGP設定：meta-tagsを使用
 
