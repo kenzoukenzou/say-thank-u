@@ -86,3 +86,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'redis'
 gem 'redis-rails'
+
+# cloudfront関連
+gem 'asset_sync'
+gem 'fog-aws'
