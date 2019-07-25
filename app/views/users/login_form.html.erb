@@ -5,6 +5,7 @@
             <%= @error %>
           </div>
         <% end %>
+				
 		<p>テストユーザー：test/test (そのままログインを押してください)</p>
 		<%= form_with model: @user, local: true do |form| %>
 		  <%= form.label :email, 'メールアドレス' %>
