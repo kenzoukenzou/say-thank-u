@@ -4,11 +4,11 @@
 	<% @posts.each do |post| %>
 		<div class="timeline-item" id='<%= post.id %>'>
 			<div class="timeline-item-img">
-				<% if post.user.image.attached? %>
-					<%= image_tag post.user.image %>
-				<% else %>
+				<%# if post.user.image.attached? %>
+					<%#= image_tag post.user.image %>
+				<%# else %>
 					<img src="/cat.jpg">
-				<% end %>
+				<%# end %>
 			</div>
 			<div class="timeline-item-content">
 				<div class="us-name">
