@@ -5,15 +5,7 @@
             <%= @error %>
           </div>
         <% end %>
-				
-		<p>テストユーザー：test/test (そのままログインを押してください)</p>
-		<%= form_with model: @user, local: true do |form| %>
-		  <%= form.label :email, 'メールアドレス' %>
-		  <%= form.text_field :email ,:value => "test" %>
-		  <%= form.label :password, 'パスワード' %>
-		  <%= form.password_field :password,:value => "test" %>
-		  <%= form.submit "ログイン" %>
-		<% end %>
+		
 		<a href="/signup" style="font-weight: bold;">新規登録はこちら</a><br>
 		<%= link_to 'Googleログイン',  user_google_omniauth_authorize_path %><br>
 		<%= link_to 'Facebookログイン', user_facebook_omniauth_authorize_path  %><br>
