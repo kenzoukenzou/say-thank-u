@@ -91,3 +91,5 @@ gem 'redis-rails'
 # cloudfront関連
 gem 'asset_sync'
 gem 'fog-aws'
+
+gem 'omniauth-rails_csrf_protection'
